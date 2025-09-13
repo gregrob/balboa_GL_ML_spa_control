@@ -27,7 +27,7 @@
 // Should we run as AP if we can't connect to WIFI?
 // #define AP_FALLBACK
 
-#include "wifi_secrets.h"
+#include "cfg_wifi_secrets.h"
 // Create file with the following
 // *************************************************************************
 // #define SECRET_SSID "";  /* Replace with your SSID */
@@ -37,7 +37,16 @@
 const char ssid[] = SECRET_SSID;
 const char passphrase[] = SECRET_PSK;
 
-#define BROKER_ADDR IPAddress(192, 168, 178, 42)  // Set the IP of your MQTT server
+#include "cfg_mqtt_secrets.h"
+// Create file with the following
+// *************************************************************************
+// #define BROKER_ADDR IPAddress(192, 168, 1, 2)  /* Replace with your MQTT broker address */
+// #define BROKER_ADDR "mqtt.example.com"         /* Replace with your MQTT broker hostname */   
+// #define BROKER_USERNAME ""                     /* Replace with your MQTT username */
+// #define BROKER_PASSWORD ""                     /* Replace with your MQTT password */
+// *************************************************************************
+
+//#define BROKER_ADDR IPAddress(192, 168, 178, 42)  // Set the IP of your MQTT server
 // #define BROKER_USERNAME "my-username"
 // #define BROKER_PASSWORD "my-password"
 
