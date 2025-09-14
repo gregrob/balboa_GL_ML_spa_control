@@ -31,3 +31,11 @@ https://www.digikey.co.uk/en/products/detail/molex/2147562082/12180458
 
 # Docs
 https://netmindz.github.io/balboa_GL_ML_spa_control/
+
+# Modifications
+
+## Links
+1. OTA: http://hottub-001.iot-general.max.lan:8080/update
+2. Status: http://hottub-001.iot-general.max.lan/
+
+
