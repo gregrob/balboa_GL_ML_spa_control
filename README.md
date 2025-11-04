@@ -34,6 +34,17 @@ https://netmindz.github.io/balboa_GL_ML_spa_control/
 
 # Modifications
 
+## Notes
+1. Configuraiton of secrets for wifi and mqtt in seperate headers.
+2. Pin5 definition moved to pin 22 of ESP to match diagram (RTS moved to 18).
+
+## ToDo
+1. Should the OTS loops be moved somwhere where the wont get blocked?
+2. Add power reading for Aux / Blower.
+3. Use circulation pump in power reading.
+4. Check time.
+
+
 ## Links
 1. OTA: http://hottub-001.iot-general.max.lan:8080/update
 2. Status: http://hottub-001.iot-general.max.lan/
