@@ -54,12 +54,19 @@ byte mac[] = {0x00, 0x10, 0xFA, 0x6E, 0x38, 0x4A};  // Leave this value, unless 
 
 // Perform measurements or read nameplate values on your tub to define the power [kW]
 // for each device in order to calculate tub power usage
-const float POWER_HEATER = 2.8;
-const float POWER_PUMP_CIRCULATION = 0.3;
-const float POWER_PUMP1_LOW = 0.31;
-const float POWER_PUMP1_HIGH = 1.3;
-const float POWER_PUMP2_LOW = 0.3;
-const float POWER_PUMP2_HIGH = 0.6;
+//const float POWER_HEATER = 2.8;
+//const float POWER_PUMP_CIRCULATION = 0.3;
+//const float POWER_PUMP1_LOW = 0.31;
+//const float POWER_PUMP1_HIGH = 1.3;
+//const float POWER_PUMP2_LOW = 0.3;
+//const float POWER_PUMP2_HIGH = 0.6;
+
+const float POWER_HEATER = 3.0;
+const float POWER_PUMP_CIRCULATION = 0.2;
+const float POWER_PUMP1_LOW = 0.1;
+const float POWER_PUMP1_HIGH = 2.0;
+const float POWER_PUMP2_LOW = 0.1;
+const float POWER_PUMP2_HIGH = 1.8;
 
 // Tweak for your tub - would be nice to auto-learn in the future to allow for outside temp etc
 const int MINUTES_PER_DEGC = 45;
@@ -84,8 +91,11 @@ int delayTime = DELAY_TIME_DEFAULT;
 #define tubUART UART_NUM_2
 #define RX_PIN 19
 #define TX_PIN 23
-#define RTS_PIN_DEF 22  // RS485 direction control, RequestToSend TX or RX, required for MAX485 board.
-#define PIN_5_PIN_DEF 18
+//#define RTS_PIN_DEF 22  // RS485 direction control, RequestToSend TX or RX, required for MAX485 board.
+//#define PIN_5_PIN_DEF 18
+#define RTS_PIN_DEF 18  // RS485 direction control, RequestToSend TX or RX, required for MAX485 board.
+#define PIN_5_PIN_DEF 22
+
 #else
 SoftwareSerial tub;
 #define RX_PIN D6
@@ -629,6 +639,7 @@ void readSerial(bool panelSelect) {
 }
 void loop() {
     bool panelSelect = (GPIO.in >> PIN_5_PIN_DEF) & 0x1;  // LOW when we are meant to read data
+    //bool panelSelect = HIGH;  // LOW when we are meant to read data - use this to force communication
     readSerial(panelSelect);
     commandQueueSize.setValue((u_int8_t) sendBuffer.itemCount());
 
