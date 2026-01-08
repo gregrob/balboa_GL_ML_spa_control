@@ -537,7 +537,8 @@ void setup() {
     tubMode.onCommand(onModeSwitchStateChanged);
 
     uptime.setName("Uptime");
-    uptime.setUnitOfMeasurement("seconds");
+    //uptime.setUnitOfMeasurement("seconds");
+    uptime.setUnitOfMeasurement("s");
     uptime.setDeviceClass("duration");
 
     tubpower.setName("Tub Power");
